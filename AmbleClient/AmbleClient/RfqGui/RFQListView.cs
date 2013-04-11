@@ -31,6 +31,7 @@ namespace AmbleClient.RfqGui
 
             FillTheIdNameDict();
             GetRfqStatesSelected();
+            this.Text = "RFQ List";
           
 
         }

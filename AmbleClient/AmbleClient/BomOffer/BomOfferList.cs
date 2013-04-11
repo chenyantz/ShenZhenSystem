@@ -166,6 +166,7 @@ namespace AmbleClient.BomOffer
             }
             catch (Exception ex)
             {
+                Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
                 MessageBox.Show("Met some errors while generating the Excel format file ");
                 return;
@@ -203,6 +204,7 @@ namespace AmbleClient.BomOffer
             {
                 string text = gv.Columns[i].HeaderText;
                 table.Columns.Add(text);
+              
             }
             foreach (DataGridViewRow r in gv.Rows)
             {
@@ -210,9 +212,27 @@ namespace AmbleClient.BomOffer
                     int j = 0;
                     for (int i = 0; i < columnCount; i++)
                     {
-                        string text = r.Cells[i].Value.ToString();
+                        object cellValue=r.Cells[i].Value;
+                       /*
+                        Type t = r.Cells[i].ValueType;
 
-                            row[j] = text;
+                        if (t==typeof(int))
+                        {
+                            row[j] = (int)cellValue ;
+                        }
+                        else if (t==typeof(short))
+                        {
+                            row[j] = (short)cellValue;
+                        }
+                        else if (t == typeof(float))
+                        {
+                            row[j] = (float)cellValue;
+                        }
+                        else
+                        {*/
+                            row[j] = cellValue.ToString();
+
+                       // }
                             j++;
                   
                     }

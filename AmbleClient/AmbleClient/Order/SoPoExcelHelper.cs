@@ -41,7 +41,7 @@ namespace AmbleClient.Order
            {
                file = new FileStream(@"SoTemplate.dll", FileMode.Open, FileAccess.Read);
            }
-           catch (Exception ex)
+           catch (Exception )
            {
                MessageBox.Show("Please check the SoTemplate.dll.");
                return;
@@ -168,7 +168,7 @@ namespace AmbleClient.Order
            {
                file = new FileStream(@"PoTemplate.dll", FileMode.Open, FileAccess.Read);
            }
-           catch (Exception ex)
+           catch (Exception)
            {
                MessageBox.Show("Please check the PoTemplate.dll.");
                return;

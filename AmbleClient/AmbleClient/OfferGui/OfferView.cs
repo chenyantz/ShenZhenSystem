@@ -21,6 +21,7 @@ namespace AmbleClient.OfferGui
         {
             InitializeComponent();
             offerList = offerMgr.GetOffersByRfqId(rfqId);
+            this.Text = "Offer List For RFQ:" + rfqId.ToString();
 
 
         }
@@ -30,6 +31,7 @@ namespace AmbleClient.OfferGui
             InitializeComponent();
             offerList=new List<Offer>();
             offerList.Add(offerMgr.GetOfferByOfferId(offerId));
+            this.Text = "Offer Info For Offer:" + offerId.ToString();
         }
 
 
@@ -80,6 +82,7 @@ namespace AmbleClient.OfferGui
             {
                 this.tsbRoute.Enabled = false;
                 this.tsbUpdate.Enabled = false;
+                this.tsbCloseOffer.Enabled = false;
             }
             else
             {
@@ -96,7 +99,10 @@ namespace AmbleClient.OfferGui
                 {
                     this.tsbCloseOffer.Enabled = false;
                 }
-
+                else
+                {
+                    this.tsbCloseOffer.Enabled = true;
+                }
             
             }
 

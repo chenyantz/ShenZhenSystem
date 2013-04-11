@@ -161,8 +161,8 @@ namespace AmbleClient.OfferGui
 
             foreach (Offer offer in offerList)
             {
-                dataGridView1.Rows.Add(offer.offerId, offer.rfqNo, offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, offer.fax, offer.email,
-                    offer.amount, offer.price, offer.deliverTime +" "+Enum.GetName(typeof(TimeUnit), offer.timeUnit), idNameDict[offer.buyerId], offer.offerDate,
+                dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, offer.fax, offer.email,
+                    offer.amount, offer.price, offer.deliverTime +" "+Enum.GetName(typeof(TimeUnit), offer.timeUnit), idNameDict[offer.buyerId], offer.offerDate.ToShortDateString(),
                     Enum.GetName(typeof(OfferState), offer.offerStates));
             }
 

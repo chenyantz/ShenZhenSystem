@@ -28,6 +28,7 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
             this.soId = soId;
             poList = PoMgr.PoMgr.GetPoAccordingToSoId(soId);
+            this.Text = "List All PO Info for SO" + soId;
         }
 
         public PoView(po poMain)
@@ -35,6 +36,7 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
             poList = new List<po>();
             poList.Add(poMain);
+            this.Text = "PO Info for PO:" + poMain.poId;
         }
 
         public PoView(int poId)
@@ -42,6 +44,7 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
             poList = new List<po>();
             poList.Add(PoMgr.PoMgr.GetPoAccordingToPoId(poId));
+            this.Text = "PO Info for PO:" + poId;
         
         }
 

@@ -122,11 +122,11 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbUpdate;
+        protected System.Windows.Forms.ToolStripButton tsbUpdate;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.ToolStripButton tsbRoute;
-        private System.Windows.Forms.ToolStripButton tsbCloseOffer;
+        protected System.Windows.Forms.ToolStripButton tsbRoute;
+        protected System.Windows.Forms.ToolStripButton tsbCloseOffer;
         /*
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

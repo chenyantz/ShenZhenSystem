@@ -59,7 +59,9 @@ namespace AmbleClient.Admin.AccountMgr
         }
            catch(Exception ex)
         {
-           
+            Logger.Error(ex.Message);
+            Logger.Error(ex.StackTrace);
+
           }
         finally
         {
@@ -89,7 +91,8 @@ namespace AmbleClient.Admin.AccountMgr
            }
            catch(Exception e)
            {
-           
+               Logger.Error(e.Message);
+               Logger.Error(e.StackTrace);
            }
            finally
            {

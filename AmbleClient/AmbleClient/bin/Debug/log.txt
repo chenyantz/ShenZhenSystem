@@ -1018,3 +1018,38 @@
 2013-04-11 14:23:59,304 [9] INFO  Amble (null) - 1,0 logged in
 2013-04-11 14:26:37,116 [8] INFO  Amble (null) - 1,0 logged in
 2013-04-11 14:38:46,240 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 14:54:12,390 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 19:22:37,865 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 19:50:02,761 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-11 19:51:50,149 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 19:54:16,510 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 19:56:15,791 [9] INFO  Amble (null) - 5,2 logged in
+2013-04-11 20:06:10,791 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:08:33,169 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:17:55,068 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:31:19,418 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:39:02,114 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:42:31,728 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:44:15,056 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:45:15,858 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:46:33,257 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:55:41,095 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-11 20:56:28,612 [11] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:07:18,771 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:08:02,757 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:14:46,577 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:14:50,462 [10] ERROR Amble (null) -    在 System.Data.DataColumn.set_DataType(Type value)
+   在 AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 206
+   在 AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 165
+2013-04-11 21:16:10,500 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:16:13,057 [8] ERROR Amble (null) -    在 System.Data.DataColumn..ctor(String columnName, Type dataType, String expr, MappingType type)
+   在 System.Data.DataColumnCollection.Add(String columnName, Type type)
+   在 AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 205
+   在 AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 165
+2013-04-11 21:18:26,889 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-11 21:18:46,908 [10] ERROR Amble (null) - DataSet 不支持 System.Nullable<>。
+2013-04-11 21:18:46,945 [10] ERROR Amble (null) -    在 System.Data.DataColumn..ctor(String columnName, Type dataType, String expr, MappingType type)
+   在 System.Data.DataColumnCollection.Add(String columnName, Type type)
+   在 AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 206
+   在 AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 165
+2013-04-11 21:22:07,653 [10] INFO  Amble (null) - 1,0 logged in

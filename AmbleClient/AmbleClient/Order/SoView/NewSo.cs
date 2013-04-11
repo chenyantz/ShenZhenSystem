@@ -26,6 +26,7 @@ namespace AmbleClient.SO
         {
             InitializeComponent();
             this.rfqId = rfqId;
+            this.Text = "New Create an SO for RFQ:" + rfqId;
         }
 
         public void FillCustomerAndContact(string customer,string contact)

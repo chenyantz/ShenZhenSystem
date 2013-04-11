@@ -9,7 +9,7 @@ namespace AmbleClient.OfferGui
     {
 
 
-        public void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
+        public override void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
         {
             base.FillTheTable(offer);
             this.tbVendorName.Enabled = false;

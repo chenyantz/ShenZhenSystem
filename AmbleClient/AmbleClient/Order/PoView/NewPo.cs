@@ -25,6 +25,7 @@ namespace AmbleClient.Order.PoView
         {
             this.soId = soId;
             InitializeComponent();
+            this.Text = "New Create a PO for SO:" + soId;
         
         }
 

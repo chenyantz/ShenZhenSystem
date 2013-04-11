@@ -19,6 +19,7 @@ namespace AmbleClient.RfqGui
             InitializeComponent();
             this.rfqId = rfqId;
             rfqMgr = new RfqMgr();
+            this.Text = "Info For RFQ:" + rfqId;
         
         }
 
@@ -36,13 +37,15 @@ namespace AmbleClient.RfqGui
                 case RfqStatesEnum.New:
                       tsbQuote.Enabled = false;
                       tsbSo.Enabled = false;
-                      tsbViewSo.Enabled = false;    
+                      tsbViewSo.Enabled = false;
+                      tsbOfferView.Enabled = false;
                        break;
                 case RfqStatesEnum.Routed:
                        tsbRoute.Enabled = false;
                        tsbQuote.Enabled=false;
                        tsbSo.Enabled = false;
                        tsbViewSo.Enabled = false;
+                       tsbOfferView.Enabled = false;
                        break;
                 case RfqStatesEnum.Offered:
                        tsbRoute.Enabled = false;
@@ -159,6 +162,12 @@ namespace AmbleClient.RfqGui
         private void tsbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbOfferView_Click(object sender, EventArgs e)
+        {
+            AmbleClient.OfferGui.OfferView offerView = new OfferGui.OfferView(rfqId);
+            offerView.ShowDialog();
         }
 
     }

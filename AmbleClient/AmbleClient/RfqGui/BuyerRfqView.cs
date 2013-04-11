@@ -17,6 +17,7 @@ namespace AmbleClient.RfqGui
         {
             this.rfqId = rfqId;
             InitializeComponent();
+            this.Text = "Info for RFQ:" + rfqId;
         }
 
         private void BuyerRfqView_Load(object sender, EventArgs e)

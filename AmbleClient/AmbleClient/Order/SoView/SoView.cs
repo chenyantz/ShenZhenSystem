@@ -31,6 +31,7 @@ namespace AmbleClient.SO
             InitializeComponent();
             this.rfqId = rfqId;
             soList = SoMgr.GetSoAccordingToRfqId(rfqId);
+            this.Text = "List All SO info for RFQ:" + rfqId;
         }
 
         public SoView(So so)
@@ -38,6 +39,7 @@ namespace AmbleClient.SO
             InitializeComponent();
             soList = new List<So>();
             soList.Add(so);
+            this.Text = "Info for SO:" + so.soId;
         }
 
         private void GenerateGui()

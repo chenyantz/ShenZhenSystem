@@ -19,6 +19,7 @@ namespace AmbleClient.Admin
         {
             InitializeComponent();
             accountMgr = new AccountMgr.AccountMgr();
+            this.Text = "Account List";
 
         }
 

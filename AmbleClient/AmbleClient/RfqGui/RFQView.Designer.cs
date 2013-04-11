@@ -39,6 +39,7 @@
             this.tsbCloseRfq = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.rfqItems1 = new AmbleClient.RfqGui.SalesRfqItems();
+            this.tsbOfferView = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.tsbQuote,
             this.tsbUpdate,
             this.tsbCopy,
+            this.tsbOfferView,
             this.tsbSo,
             this.tsbViewSo,
             this.tsbCloseRfq,
@@ -147,6 +149,16 @@
             this.rfqItems1.Size = new System.Drawing.Size(912, 510);
             this.rfqItems1.TabIndex = 1;
             // 
+            // tsbOfferView
+            // 
+            this.tsbOfferView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbOfferView.Image = ((System.Drawing.Image)(resources.GetObject("tsbOfferView.Image")));
+            this.tsbOfferView.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOfferView.Name = "tsbOfferView";
+            this.tsbOfferView.Size = new System.Drawing.Size(86, 22);
+            this.tsbOfferView.Text = "View Offer(s)";
+            this.tsbOfferView.Click += new System.EventHandler(this.tsbOfferView_Click);
+            // 
             // RFQView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -179,5 +191,6 @@
         private System.Windows.Forms.ToolStripButton tsbCloseRfq;
         private SalesRfqItems rfqItems1;
         private System.Windows.Forms.ToolStripButton tsbClose;
+        private System.Windows.Forms.ToolStripButton tsbOfferView;
     }
 }
