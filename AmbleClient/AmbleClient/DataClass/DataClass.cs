@@ -22,11 +22,11 @@ namespace AmbleClient.DataClass
         public DataBase()
         {
 
-            string strServer = OperatorFile.GetIniFileString("DataBase", "Server", "", Environment.CurrentDirectory + "\\AmbleAppServer.ini");
+            string strServer = ServerInfo.GetServerAddress();// OperatorFile.GetIniFileString("DataBase", "Server", "", Environment.CurrentDirectory + "\\AmbleAppServer.ini");
             //获取登录用户
-            string strUserID = OperatorFile.GetIniFileString("DataBase", "UserID", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
+            string strUserID = ServerInfo.GetUserId();// OperatorFile.GetIniFileString("DataBase", "UserID", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
             //获取登录密码
-            string strPwd = OperatorFile.GetIniFileString("DataBase", "Pwd", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
+            string strPwd = ServerInfo.GetPassword();// OperatorFile.GetIniFileString("DataBase", "Pwd", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
             //数据库连接字符串
             string strConn = "Server = " +strServer + ";Database=shenzhenerp;User id=" + strUserID + ";PWD=" + strPwd;
 

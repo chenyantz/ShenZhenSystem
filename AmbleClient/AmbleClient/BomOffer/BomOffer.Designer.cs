@@ -15,6 +15,8 @@ using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using MySql.Data.MySqlClient;
+
 
 [assembly: EdmSchemaAttribute()]
 namespace AmbleClient.BomOffer
@@ -33,6 +35,7 @@ namespace AmbleClient.BomOffer
         /// </summary>
         public BomOfferEntities() : base("name=BomOfferEntities", "BomOfferEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -42,6 +45,7 @@ namespace AmbleClient.BomOffer
         /// </summary>
         public BomOfferEntities(string connectionString) : base(connectionString, "BomOfferEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -51,15 +55,29 @@ namespace AmbleClient.BomOffer
         /// </summary>
         public BomOfferEntities(EntityConnection connection) : base(connection, "BomOfferEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         #endregion
     
+
+
+        private void ChangeString()
+        {
+            MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder(((EntityConnection)Connection).StoreConnection.ConnectionString);
+            sb.UserID = ServerInfo.GetUserId();
+            sb.Password = ServerInfo.GetPassword();
+            sb.Server = ServerInfo.GetServerAddress();
+            sb.Database = "shenzhenerp";
+            ((EntityConnection)Connection).StoreConnection.ConnectionString = sb.ConnectionString;  
+        
+        }
+
         #region 分部方法
-    
         partial void OnContextCreated();
+
     
         #endregion
     

@@ -8,6 +8,9 @@ using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows;
 using System.Windows.Forms;
 using log4net;
+using PasswordServer;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace AmbleClient
 
@@ -168,6 +171,90 @@ namespace AmbleClient
             
     
     }
+
+
+    public static class ServerInfo
+    {
+        private static string userId;
+        private static string password;
+        private static string strServer;
+        private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
+
+        private static string desKey = "AmbleSYS";
+
+        public static DatabaseInfo dbinfo;
+
+        static ServerInfo()
+        {
+            try
+            {
+                strServer = OperatorFile.GetIniFileString("DataBase", "Server", "", Environment.CurrentDirectory + "\\AmbleAppServer.ini");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                MessageBox.Show("Please check the AmbleAppServer.ini file.");
+            }
+            try
+            {
+                ChannelServices.RegisterChannel(new TcpClientChannel(), false);
+                dbinfo = (DatabaseInfo)Activator.GetObject(typeof(DatabaseInfo), "tcp://192.168.1.101:1111/DatabaseInfo");
+                userId = DecryptDES(dbinfo.GetDbUser(), desKey);
+                password=DecryptDES(dbinfo.GetDbPassword(),desKey);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                Logger.Error(ex.StackTrace);
+                MessageBox.Show("Can not Connected to the Server, Please contact the Admin.");
+            }
+        
+        }
+
+
+        public static string GetUserId()
+        {
+            return userId;
+        }
+
+        public static string GetPassword()
+         {
+             return password;
+        }
+        public static string GetServerAddress()
+        {
+            return strServer;
+        }
+
+
+        private static string DecryptDES(string decryptString, string decryptKey)
+        {
+            try
+            {
+                byte[] rgbKey = Encoding.UTF8.GetBytes(decryptKey);
+                byte[] rgbIV = Keys;
+                byte[] inputByteArray = Convert.FromBase64String(decryptString);
+                DESCryptoServiceProvider DCSP = new DESCryptoServiceProvider();
+                MemoryStream mStream = new MemoryStream();
+                CryptoStream cStream = new CryptoStream(mStream, DCSP.CreateDecryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
+                cStream.Write(inputByteArray, 0, inputByteArray.Length);
+                cStream.FlushFinalBlock();
+                return Encoding.UTF8.GetString(mStream.ToArray());
+            }
+            catch(Exception ex)
+            {
+                return decryptString;
+            }
+        }
+
+
+  
+    
+    }
+
+
+
+
 
 
 }
