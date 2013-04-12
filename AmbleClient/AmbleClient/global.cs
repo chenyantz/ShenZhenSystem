@@ -206,7 +206,7 @@ namespace AmbleClient
             {
                 Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
-                MessageBox.Show("Can not Connected to the Server, Please contact the Admin.");
+            //    MessageBox.Show("Can not Connected to the Server---------, Please contact the Admin.");
             }
         
         }

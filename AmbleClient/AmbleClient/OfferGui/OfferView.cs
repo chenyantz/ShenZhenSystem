@@ -133,6 +133,7 @@ namespace AmbleClient.OfferGui
             {
             BuyerOfferItems bItem = item as BuyerOfferItems;
             bItem.UpdateOfferState((int)OfferState.Routed);
+            this.tsbRoute.Enabled = false;
             }
         }
 

@@ -20,13 +20,13 @@ namespace AmbleClient.Order.PoView
             this.isNewAdd = isNewAdd;
             if (isNewAdd)
             {
-                tscbOp.Text = @"Add&Close";
+                tscbOp.Text = "Add&&Close";
                 this.Text = "Add a PO Item";
 
             }
             else
             {
-                tscbOp.Text = @"Update&Close";
+                tscbOp.Text = "Update&&Close";
                 this.Text = "PO Item View";
             }
 

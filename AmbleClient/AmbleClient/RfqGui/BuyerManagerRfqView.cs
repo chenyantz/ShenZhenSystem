@@ -41,6 +41,9 @@ namespace AmbleClient.RfqGui
                 case RfqStatesEnum.Routed:
                     tsbViewOffers.Enabled = false;
                     break;
+                case RfqStatesEnum.Offered:
+                    tsbViewOffers.Enabled=true;
+                    break;
                 default:
                     break;
             }
@@ -94,6 +97,9 @@ namespace AmbleClient.RfqGui
             AmbleClient.OfferGui.NewOffer newOffer = new OfferGui.NewOffer(rfqId);
             newOffer.NewOfferAutoFill(this.buyerManagerRfqItems1.tbPartNo.Text, this.buyerManagerRfqItems1.tbMfg.Text);
             newOffer.ShowDialog();
+            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
+
         }
 
         private void tsbViewOffers_Click(object sender, EventArgs e)

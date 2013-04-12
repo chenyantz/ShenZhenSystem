@@ -19,6 +19,8 @@ namespace AmbleClient.Order
         protected List<int> intStateList = new List<int>();
 
         protected Dictionary<string, string> filterColumnDict = new Dictionary<string, string>();
+
+         private int selectedRow=0;
         
         public OrderListView()
         {
@@ -151,8 +153,28 @@ namespace AmbleClient.Order
             {
                 OpenOrderDetails(e.RowIndex);
             }
+            RestoreSelectedRow();
 
 
+        }
+
+        private void RestoreSelectedRow()
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+            dataGridView1.Rows[0].Selected = false;
+            if (selectedRow > dataGridView1.Rows.Count - 1)
+            {
+                selectedRow = dataGridView1.Rows.Count - 1;
+            }
+            dataGridView1.Rows[selectedRow].Selected = true;
+        
+        }
+
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
         }
 
 

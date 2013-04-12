@@ -56,10 +56,12 @@ namespace AmbleClient.RfqGui
                        tsbRoute.Enabled = false;
                        tsbQuote.Enabled = false;
                        tsbViewSo.Enabled = false;
+                       tsbSo.Enabled = true;
                        break;
                 case RfqStatesEnum.HasSO:
                        tsbRoute.Enabled = false;
                        tsbQuote.Enabled = false;
+                       tsbViewSo.Enabled = true;
                        break;
                 case RfqStatesEnum.Closed:
                        tsbRoute.Enabled = false;
@@ -87,6 +89,10 @@ namespace AmbleClient.RfqGui
                     MessageBox.Show("Quote the RFQ Fail");
                 }
             }
+            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
+
+
         }
 
         private void tsbRoute_Click(object sender, EventArgs e)
@@ -131,6 +137,10 @@ namespace AmbleClient.RfqGui
             SO.NewSo newSo = new SO.NewSo(rfqId);
             newSo.FillCustomerAndContact(this.rfqItems1.tbCustomer.Text, this.rfqItems1.tbContact.Text);
             newSo.ShowDialog();
+
+            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
+
         }
 
         private void tsbViewSo_Click(object sender, EventArgs e)

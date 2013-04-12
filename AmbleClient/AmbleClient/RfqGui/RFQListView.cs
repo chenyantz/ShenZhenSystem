@@ -20,6 +20,8 @@ namespace AmbleClient.RfqGui
         int currentPage=0;
         int totalPage=0;
 
+        int selectedRowIndex=0;
+
         List<RfqStatesEnum> rfqStatesSelected = new List<RfqStatesEnum>();
 
         protected RfqManager.RfqMgr rfqMgr;
@@ -82,6 +84,7 @@ namespace AmbleClient.RfqGui
                 totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected,false);
             
             }
+
             tslCount.Text = "/ {"+totalPage+"}";
             tstbCurrentPage.Text = "0";
 
@@ -244,6 +247,8 @@ namespace AmbleClient.RfqGui
 
         private void tsbSet_Click(object sender, EventArgs e)
         {
+            
+            
             if (int.TryParse(toolStripTextBox2.Text.Trim(), out itemsPerPage) == false)
             {
                 itemsPerPage = 30;
@@ -251,6 +256,13 @@ namespace AmbleClient.RfqGui
             }
             else
             {
+                if (itemsPerPage <= 0)
+                {
+                    itemsPerPage = 30;
+                    toolStripTextBox2.Text = "30";
+                    return;
+
+                }
                 currentPage = 0;
                 CountPageAndShowDataGridView();
             }
@@ -264,6 +276,7 @@ namespace AmbleClient.RfqGui
             NewRfq newrfq = new NewRfq();
             newrfq.ShowDialog();
             CountPageAndShowDataGridView();
+            RestoreSelectedRow();
 
         }
 
@@ -287,9 +300,22 @@ namespace AmbleClient.RfqGui
            //refresh
             CountPageAndShowDataGridView();
 
+            RestoreSelectedRow();
+           
+
+        }
 
 
-
+        private void RestoreSelectedRow()
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+            dataGridView1.Rows[0].Selected = false;
+            if (selectedRowIndex > dataGridView1.Rows.Count - 1)
+            {
+                selectedRowIndex = dataGridView1.Rows.Count - 1;
+            }
+            dataGridView1.Rows[selectedRowIndex].Selected = true;
         }
 
         public virtual void CellDoubleClickShow(int rfqId)
@@ -347,6 +373,15 @@ namespace AmbleClient.RfqGui
                 tp.ShowDialog();
                 tstbFilterString.Text = tp.FromTo;
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //save the current select row;
+
+            selectedRowIndex = e.RowIndex;
+
+
         }
   }
 }

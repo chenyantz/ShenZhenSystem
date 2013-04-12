@@ -17,6 +17,7 @@ namespace AmbleClient.custVendor
         DataTable orginateCustomerVendorTable;
         DataTable showTable;
         CustomerVendorMgr customerVendorMgr;
+        private int selectedRow;
         
         
         public customerVendorMainFrame(int customerOrVendor)
@@ -170,6 +171,7 @@ namespace AmbleClient.custVendor
           customerVendorOperation ModifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(e.RowIndex),customerOrVendor);
           ModifyOpFrame.ShowDialog();
           FillTheDataGrid();
+          RestoreSelectedRow();
         }
 
         private DataRow GetDataRowInShowTableFromIndex(int rowIndex)
@@ -203,6 +205,7 @@ namespace AmbleClient.custVendor
             customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor);
             addOpframe.ShowDialog();
             FillTheDataGrid();
+            RestoreSelectedRow();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -212,6 +215,7 @@ namespace AmbleClient.custVendor
             customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex), customerOrVendor);
             modifyOpFrame.ShowDialog();
             FillTheDataGrid();
+            RestoreSelectedRow();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -221,7 +225,27 @@ namespace AmbleClient.custVendor
             DataRow dr = GetDataRowInShowTableFromIndex(this.dataGridView1.CurrentRow.Index);
             customerVendorMgr.DeleteCustomerOrVendor(customerOrVendor, dr["Company Name"].ToString(), Convert.ToInt32(dr["Owner Id"]));
             FillTheDataGrid();
+            RestoreSelectedRow();
         }
+        }
+
+        private void RestoreSelectedRow()
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+            dataGridView1.Rows[0].Selected = false;
+
+            if (selectedRow > dataGridView1.Rows.Count - 1)
+            {
+                selectedRow = dataGridView1.Rows.Count - 1;
+            }
+            dataGridView1.Rows[selectedRow].Selected = true;
+        
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
         }
 
     }

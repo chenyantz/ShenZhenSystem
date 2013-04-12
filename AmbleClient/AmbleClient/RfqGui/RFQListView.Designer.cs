@@ -140,7 +140,7 @@
             "My RFQ"});
             this.tscbAllOrMine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tscbAllOrMine.Name = "tscbAllOrMine";
-            this.tscbAllOrMine.Size = new System.Drawing.Size(150, 25);
+            this.tscbAllOrMine.Size = new System.Drawing.Size(160, 25);
             this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
             this.tscbAllOrMine.Click += new System.EventHandler(this.tscbAllOrMine_Click);
             // 
@@ -274,6 +274,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1082, 411);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // No

@@ -172,8 +172,7 @@ namespace AmbleClient.SO
         {
             AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo(soList[tabControl1.SelectedIndex].soId);
             newPo.ShowDialog();
-
-
+            GenerateGui();
 
 
         }

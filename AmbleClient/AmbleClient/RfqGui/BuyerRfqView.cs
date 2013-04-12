@@ -24,8 +24,25 @@ namespace AmbleClient.RfqGui
         {
             Rfq rfq = new AmbleClient.RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
             buyerRfqItems1.FillTheTable(rfq);
-            //SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
+            SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
+
+        private void SetMenuStateAccordingToRfqState(RfqStatesEnum state)
+        {
+             switch (state)
+            {
+               case RfqStatesEnum.Routed:
+                    tsbViewOffer.Enabled = false;
+                    break;
+                case RfqStatesEnum.Offered:
+                    tsbViewOffer.Enabled=true;
+                    break;
+                default:
+                    break;
+        
+        }
+        }
+
 
         private void tsbOffer_Click(object sender, EventArgs e)
         {
@@ -36,6 +53,12 @@ namespace AmbleClient.RfqGui
         private void tsbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbViewOffer_Click(object sender, EventArgs e)
+        {
+            AmbleClient.OfferGui.OfferView offerList = new OfferGui.OfferView(rfqId);
+            offerList.ShowDialog();
         }
 
 

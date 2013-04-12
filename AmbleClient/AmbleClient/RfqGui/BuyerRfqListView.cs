@@ -12,7 +12,12 @@ namespace AmbleClient.RfqGui
         public BuyerRfqListView()
         {
             base.tsbNewRfq.Enabled = false;
-            base.tscbAllOrMine.Enabled = false;
+
+            base.tscbAllOrMine.Items.Add("List All RFQs I Can See");
+            base.tscbAllOrMine.Items.Add("List RFQs which PA is me");
+            tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
+            tscbAllOrMine.SelectedIndex = 0;
+            tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
 
             base.cbNew.Checked = false;
             base.cbRouted.Checked = true;
